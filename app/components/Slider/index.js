@@ -78,7 +78,7 @@ export default class Slider extends React.PureComponent {
     let _this = this;
     let interval = setInterval(function(){
       _this.nextImage();
-    }, 5000);
+    }, 3000);
     this.setState({
       theInterval: interval
     })
@@ -93,8 +93,9 @@ export default class Slider extends React.PureComponent {
       <div>
         <div className="slider">
           <img className="slideImage" src={require('../../images/' + this.renderImage())}/>
-          <LeftIcon className="sliderIcon" onClick={this.stopAutoSlide, this.previousImage} />
-          <RightIcon className="sliderIcon" onClick={this.stopAutoSlide, this.nextImage}/>
+          <LeftIcon className="sliderIcon" onClick={this.previousImage} onMouseOver={this.stopAutoSlide} onMouseOut={this.autoSlide} />
+          <RightIcon className="sliderIcon" onClick={this.nextImage} onMouseOver={this.stopAutoSlide} onMouseOut={this.autoSlide} 
+          />
         </div>
       </div>
     );
